@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EReservationApplication<e-reservation>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.platzi.ereservation.EReservationApplication",
+            "projectName": "e-reservation",
+            "args": ""
+        }
+    ]
+}
