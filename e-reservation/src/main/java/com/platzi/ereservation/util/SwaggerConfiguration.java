@@ -18,7 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfiguration {
     public Docket documentation(){
         return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))  //Todas las clases RestController para generar doc
+                .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))  //Todas las clases RestController para generar documentacion
                 .paths(PathSelectors.any())
                 .build();
     }

@@ -6,6 +6,8 @@ import com.platzi.ereservation.negocio.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 /**
  * Clase para definir los servicios de cliente
@@ -41,7 +43,7 @@ public class ClienteService {
      * Metodo para realizar la operacion de eliminar un cliente
      * @param cliente
      */
-    public void deelete(Cliente cliente){
+    public void delete(Cliente cliente){
         this.clienteRepository.delete(cliente);
     }
 
@@ -52,6 +54,10 @@ public class ClienteService {
      */
     public Cliente findByIdentificacion(String identificacionCli){
         return this.clienteRepository.findByIdentificacion(identificacionCli);
+    }
+
+    public List<Cliente> findAll(){
+        return this.clienteRepository.findAll();
     }
 
 
