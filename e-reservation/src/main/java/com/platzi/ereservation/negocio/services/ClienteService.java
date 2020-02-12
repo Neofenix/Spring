@@ -4,11 +4,14 @@ package com.platzi.ereservation.negocio.services;
 import com.platzi.ereservation.modelo.Cliente;
 import com.platzi.ereservation.negocio.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 /**
  * Clase para definir los servicios de cliente
  */
 @Service
+@Transactional(readOnly = true)
 public class ClienteService {
     private final ClienteRepository clienteRepository;
 

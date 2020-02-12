@@ -1,34 +1,44 @@
 package com.platzi.ereservation.modelo;
 
-import lombok.Data;
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
-import java.util.Set;
+import lombok.Data;
 
 /**
  * Clase que representa la tabla Cliente
- * @author jzapata
+ * @author martosfre
+ *
  */
 @Data
-@Entity  //Permite que la tabla represente una tabla de datos
-@Table(name = "cliente")   //A que tabla se va a mapear
-@NamedQuery(name ="Client.findByIdentificacion", query = "Select c from CLiente c where c.identificacionCli = ?1")
+@Entity
+@Table(name = "cliente")
+@NamedQuery(name="Cliente.findByIdentificacion", query="Select c from Cliente c where c.identificacionCli = ?1")
 public class Cliente {
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy="uuid2")
     private String idCli;
-    private String nombreCli;  //private: opcional por que el Lombok reconoce que es un POJO
+    private String nombreCli;
     private String apellidoCli;
     private String identificacionCli;
     private String direccionCli;
     private String telefonoCli;
     private String emailCli;
-    @OneToMany(mappedBy="cliente")                       //Un cliente tiene muchas reservas
+
+    @OneToMany(mappedBy="cliente")
     private Set<Reserva> reservas;
 
     public Cliente() {
+        // TODO Auto-generated constructor stub
     }
 
 }
